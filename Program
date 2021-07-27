@@ -1,0 +1,76 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+int main()
+{
+	int n,i,j,x,d, asc;
+	int perkalian=1;
+	float median,nilai,rata, total=0;
+	
+    cout << "Masukan jumlah bilangan : ";
+    cin >> n;
+
+    int a[n];
+
+    for(int i=0; i<n; i++){
+        cout << "Bilangan ke- " << (i+1) << " : ";
+        cin >> a[i];
+        total = total + a[i];
+        perkalian = perkalian * a[i];
+    }
+
+    for(int c=1;c<n;c++)
+    {
+        for(int d=0;d<n-c;d++)
+        {
+            if(a[d] > a[d+1])
+            {
+                asc=a[d];
+                a[d]=a[d+1];
+                a[d+1]=asc;
+            }
+        }
+    }
+
+    cout << endl << "\nMengurutkan Bilangan : ";
+    for(int i=0;i<n;i++)
+    {
+        cout << " " << a[i];
+    }
+    
+    for(i=0;i<n-1;i++)
+	{
+		for(j=i+1;j<n;j++)
+		{
+			if(a[i]>a[j])
+			{
+				x=a[i];
+				a[i]=a[j];
+				a[j]=x;
+				
+			}
+		}
+	}
+	if(n%2==0)
+	{
+		nilai=(a[(n/2)-1]+a[(n/2)]);
+		median=nilai/2;
+		cout << "\nNilai Tengah : " << median << endl;
+	}
+	else
+	{
+		median=a[((n)/2)];
+		cout << "\nNilai Tengah : " << median << endl;
+	}
+	{
+	  rata = total/n;
+	  cout << "Hasil rata-rata : " << rata << endl;
+    }
+    {
+    cout << "Hasil perkalian : " << perkalian << endl;
+    }
+    
+	cout << endl;
+    getch();
+    return 0;
+}
